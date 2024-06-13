@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Movie} from "./types";
+import React, {useState} from 'react';
+import {Movie} from './types';
 import MovieForm from './components/MovieForm/MovieForm';
 
 const App: React.FC = () => {
@@ -29,7 +29,6 @@ const App: React.FC = () => {
   }
 
 
-
   return (
     <div>
       <input
@@ -38,12 +37,17 @@ const App: React.FC = () => {
         onChange={(event) => setMovieTitle(event.target.value)}
       />
       <button onClick={addMovie}>Add Movie</button>
-      <MovieForm movies={movies} onDelete={deleteMovie} changeName={(e) => onChangeName(e, 0)}/>
 
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>{movie.title}</li>
         ))}
+        <MovieForm
+          movies={movies}
+          onDelete={deleteMovie}
+          changeName={(e) =>
+            onChangeName(e, 0)}
+        />
       </ul>
     </div>
   );
