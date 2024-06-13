@@ -20,8 +20,12 @@ const App: React.FC = () => {
     setMovies(prevMovies => prevMovies.filter((movie) => movie.id === index));
   };
 
-  const editMovie = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value)
+  const onChangeName = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const moviesCopy = [...movies];
+    const movieCopy = {...moviesCopy[index]};
+    movieCopy.title = e.target.value
+    moviesCopy[index] = movieCopy;
+    setMovies(moviesCopy)
   }
 
 
@@ -34,7 +38,7 @@ const App: React.FC = () => {
         onChange={(event) => setMovieTitle(event.target.value)}
       />
       <button onClick={addMovie}>Add Movie</button>
-      <MovieForm movies={movies} onDelete={deleteMovie} onEdit={editMovie}/>
+      <MovieForm movies={movies} onDelete={deleteMovie} changeName={(e) => onChangeName(e, 0)}/>
 
       <ul>
         {movies.map((movie) => (
@@ -46,3 +50,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+

@@ -1,21 +1,28 @@
 import React from 'react';
-import {Movie} from "../../types";
+import { Movie } from '../../types';
 
-const MovieForm: React.FC<{
+interface MovieFormProps {
   movies: Movie[];
-  onEdit: React.ChangeEventHandler<HTMLInputElement>
   onDelete: (id: number) => void;
-}> = React.memo(({movies, onEdit, onDelete}) => {
+  changeName?: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+const MovieForm: React.FC<MovieFormProps> = ({ movies, onDelete, changeName }) => {
+
   return (
-    <ul>
+    <div>
       {movies.map((movie) => (
-        <li key={movie.id}>
-          <input type="text" value={movie.title} onChange={(event) => onEdit(event)}/>
+        <div key={movie.id}>
+          <input
+            type="text"
+            value={movie.title}
+            onChange={changeName}
+          />
           <button onClick={() => onDelete(movie.id)}>Delete</button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
-});
+};
 
 export default MovieForm;
