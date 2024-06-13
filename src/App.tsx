@@ -22,7 +22,6 @@ const App: React.FC = () => {
 
   const editMovie = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value)
-
   }
 
 
