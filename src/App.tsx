@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Movie} from './types';
 import MovieForm from './components/MovieForm/MovieForm';
+import Joke from './components/Jokes/Joke';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -49,8 +50,9 @@ const App: React.FC = () => {
             onChangeName(e, 0)}
         />
       </ul>
+      <Joke />
     </div>
-  );
+  )
 };
 
 export default App;
