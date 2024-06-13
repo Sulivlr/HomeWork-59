@@ -8,7 +8,7 @@ interface Props {
 const Button: React.FC<Props> = ({onClick, text}) => {
   return (
     <div>
-      <button onClick={onClick}>{text}</button>
+      <button className="btn btn-primary" onClick={onClick}>{text}</button>
     </div>
   );
 };

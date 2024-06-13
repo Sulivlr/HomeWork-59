@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Movie} from './types';
 import MovieForm from './components/MovieForm/MovieForm';
 import Joke from './components/Jokes/Joke';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -32,14 +33,14 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <input
+      <input className="form-control"
         type="text"
         value={movieTitle}
         onChange={(event) => setMovieTitle(event.target.value)}
       />
-      <button onClick={addMovie}>Add Movie</button>
+      <button className="btn btn-success" onClick={addMovie}>Add Movie</button>
 
-      <ul>
+      <ul className="mt-2">
         {movies.map((movie) => (
           <li key={movie.id}>{movie.title}</li>
         ))}

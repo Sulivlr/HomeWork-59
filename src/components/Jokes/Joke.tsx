@@ -27,7 +27,7 @@ const Joke: React.FC = () => {
     <div className="Header">
       <h1> Chuck Norris and Programming Jokes</h1>
       <JokeRender joke={joke}/>
-     <Button onClick={ChuckJoke} text="Get Chuck Norris Joke"/>
+     <Button  onClick={ChuckJoke} text="Get Chuck Norris Joke"/>
     </div>
   );
 };

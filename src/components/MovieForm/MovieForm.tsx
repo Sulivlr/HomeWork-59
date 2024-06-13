@@ -18,7 +18,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ movies, onDelete, changeName }) =
             value={movie.title}
             onChange={changeName}
           />
-          <button onClick={() => onDelete(movie.id)}>Delete</button>
+          <button className="btn btn-danger" onClick={() => onDelete(movie.id)}>Delete</button>
         </div>
       ))}
     </div>
